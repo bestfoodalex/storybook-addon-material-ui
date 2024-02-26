@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Slider from '@mui/material/Slide';
-import MaterialColorPicker from '@usulpro/color-picker';
+import { MaterialPicker } from 'react-color';
 
 import { CSS_CLASS } from '../';
 
@@ -295,12 +295,10 @@ function PropToolPicker(props, context) {
   return (
     <div {...{ style }}>
       <div style={{ border: 'solid 1px grey' }}>
-        <MaterialColorPicker
-          initColor={initColor}
-          onSubmit={onSubmit}
-          onSelect={valueHandler}
-          onHover={valueHandler}
-          onReset={onSubmit}
+        <MaterialPicker
+          color={initColor}
+          onChange={valueHandler}
+          onChangeComplete={onSubmit}
         />
       </div>
     </div>
@@ -341,11 +339,10 @@ function PropToolPickerFull(props, context) {
           style={tabStyle}
         >
           <div style={{ border: 'solid 1px grey' }}>
-            <MaterialColorPicker
-              initColor={initColor}
-              onSubmit={onSubmit}
-              onSelect={valueHandler}
-              onReset={onSubmit}
+            <MaterialPicker
+              color={initColor}
+              onChangeComplete={onSubmit}
+              onChange={valueHandler}
             />
           </div>
         </Tab>
