@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { createTheme } from '@mui/material/styles';
-import MaterialColorPicker from '@usulpro/color-picker';
+import { MaterialPicker } from 'react-color';
 
 const PaletteHolder = styled('div')`
   height: 1px;
@@ -202,12 +202,10 @@ export default class Palette extends React.Component {
         {this.state.isPickerOpen && (
           <PickerOverlap>
             <PickerHolder>
-              <MaterialColorPicker
-                initColor={this.prevColor}
-                onSubmit={this.onSubmit}
-                onSelect={this.onHover}
-                onHover={this.onHover}
-                onReset={this.onReset}
+              <MaterialPicker
+                color={this.prevColor}
+                onChangeComplete={this.onSubmit}
+                onChange={this.onHover}
               />
             </PickerHolder>
           </PickerOverlap>
